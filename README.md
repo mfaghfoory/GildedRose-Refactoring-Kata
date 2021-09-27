@@ -1,6 +1,6 @@
 ## Required dotnet version
 
-.Net core 3.1
+.NET Core 3.1
 
 ## Building project
 
