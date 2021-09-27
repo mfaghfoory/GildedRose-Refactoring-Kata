@@ -18,8 +18,12 @@ namespace GildedRoseTests
         [Theory]
         [InlineData("sample title", 10, 0, 8)] //Once the sell by date has passed, Quality degrades twice as fast
         [InlineData("sample title", 0, 10, 0)] //The Quality of an item is never negative
+        [InlineData("sample title", 1, -1, 0)] //The Quality of an item is never negative
+        [InlineData("Conjured Mana Cake", 1, 1, 0)] //The Quality of an item is never negative
+        [InlineData("Conjured Mana Cake", 4, 1, 2)] //The Quality of Conjured item should decrease twice
         [InlineData("Aged Brie", 49, 10, 50)] //"Aged Brie" actually increases in Quality the older it gets
         [InlineData("Aged Brie", 50, 10, 50)] //The Quality of an item is never more than 50
+        [InlineData("Aged Brie", 49, -1, 50)] //The Quality of an item is never more than 50
         public void Testing_First_Four_Rules(string name, int quality, int sellIn, int expectedQuality)
         {
             var items = new List<Item>

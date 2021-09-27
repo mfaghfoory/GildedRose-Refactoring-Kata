@@ -6,10 +6,14 @@
         {
             item.SellIn--;
 
-            if (item.Quality > 0)
+            var iteration = item.SellIn >= 0 ? 1 : 2;
+
+            for (int i = 0; i < iteration; i++)
             {
-                var qualityShouldDecrease = item.SellIn >= 0 ? 1 : 2;
-                item.Quality -= qualityShouldDecrease;
+                if (item.Quality > 0)
+                {
+                    item.Quality--;
+                }
             }
         }
     }

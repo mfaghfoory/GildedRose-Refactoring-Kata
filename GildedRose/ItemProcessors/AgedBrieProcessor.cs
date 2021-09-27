@@ -8,8 +8,12 @@
 
             if (item.Quality < 50)
             {
-                var qualityShouldIncrease = item.SellIn >= 0 ? 1 : 2;
-                item.Quality += qualityShouldIncrease;
+                item.Quality++;
+            }
+
+            if (item.SellIn < 0 && item.Quality < 50)
+            {
+                item.Quality++;
             }
         }
     }
